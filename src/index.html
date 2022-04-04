@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davi 3D</title>
+</head>
+<body>
+    <div class="conteiner">
+        <div class="content">
+            <h1>Davi Sites<br> 3D's</h1>
+            <p>(feito em TypeScript com Three.js)</p>
+        </div>
+    </div>
+    <canvas class="webgl"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js" integrity="sha512-kVlGhj2qFy+KBCFuvjBJTGUMxbdqJKs4yK2jh0e0VPhWUPiPC87bzm4THmaaIee3Oj7j6sDpTTgm2EPPiESqBg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/CSSRulePlugin.min.js" integrity="sha512-nmbVSK2gya+HjrjgyAm6twWNbWJdb/VyyAH6JVYdW/CMZ3Fmpc4211e9F3iXLRRB6p2v2PlFNDUc5mAuHlkW7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        const content = CSSRulePlugin.getRule(".content:before");
+        const h1 = document.querySelector("h1");
+        const p = document.querySelector("p");
+        const tl = gsap.timeline();
+
+        tl.from(content, {delay: .5, duration: 4, cssRule: {scaleX: 0}})
+        tl.to(h1, {duration: 2, clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", y: '30px'}, "=-3")
+        tl.to(p, {duration: 4, clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", y: '30px'}, "=-2")
+
+
+    </script>
+</body>
+</html>
